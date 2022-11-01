@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2022 Budi Ardianata.
+ */
 package com.test.news.data.source.remote.interceptor
 
 import com.test.news.BuildConfig

@@ -1,16 +1,24 @@
+/*
+ * Copyright (C) 2022 Budi Ardianata.
+ */
 package com.test.news.di
 
 import com.google.gson.GsonBuilder
 import com.test.news.data.source.remote.NewsApi
 import com.test.news.data.source.remote.interceptor.TokenInterceptor
 import com.test.news.util.BaseUrl
+import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
+@InstallIn(SingletonComponent::class)
+@Module
 object NetworkModule {
 
     @Provides
@@ -30,7 +38,6 @@ object NetworkModule {
             .addInterceptor(tokenInterceptor)
             .build()
     }
-
 
     @Singleton
     @Provides
