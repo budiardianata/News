@@ -8,6 +8,7 @@ import com.test.news.data.source.RemoteDataSource
 import com.test.news.data.source.remote.response.ErrorResponse
 import com.test.news.data.source.remote.response.NewsResponse
 import com.test.news.util.IODispatcher
+import com.test.news.util.fromJson
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineDispatcher
@@ -33,8 +34,7 @@ class RemoteDataSourceImpl @Inject constructor(
                 return@withContext NetworkResult.Success(body)
             }
             val code = response.code()
-            val error =
-                Gson().fromJson(response.errorBody()?.charStream(), ErrorResponse::class.java)
+            val error:ErrorResponse = Gson().fromJson(response.errorBody()?.charStream())
             return@withContext NetworkResult.Error(code, error.message)
         } catch (e: Exception) {
             return@withContext NetworkResult.Exception(e)

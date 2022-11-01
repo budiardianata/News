@@ -15,6 +15,14 @@ object FakeDataProvider {
     }
 
     fun newsResponse(max: Int): NewsResponse {
+        return NewsResponse(
+            status = "ok",
+            totalResults = max,
+            articles = generateArticle(max)
+        )
+    }
+
+    fun generateArticle(max: Int): List<ArticleResponse> {
         val articles = mutableListOf<ArticleResponse>()
         for (i in 1..max) {
             val source = SourceResponse(
@@ -28,15 +36,11 @@ object FakeDataProvider {
                 description = "description$i",
                 url = "url$i",
                 urlToImage = "urlToImage$i",
-                publishedAt = "publishedAt$i",
+                publishedAt = "2022-11-01T15:53:40Z",
                 content = "content$i"
             )
             articles.add(article)
         }
-        return NewsResponse(
-            status = "ok",
-            totalResults = max,
-            articles = articles
-        )
+        return articles.toList()
     }
 }
