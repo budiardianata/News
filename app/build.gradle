@@ -1,0 +1,108 @@
+plugins {
+    alias libs.plugins.android.application
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.parcelize
+    alias libs.plugins.dager.hilt
+    alias libs.plugins.kotlin.kapt
+    alias libs.plugins.maps.secret
+    alias libs.plugins.spotless
+}
+
+android {
+    namespace 'com.test.news'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.test.news"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation libs.core.ktx
+    implementation libs.bundles.ui
+    implementation libs.bundles.lifecycle
+    implementation libs.bundles.navigation
+    implementation libs.bundles.retrofit
+    implementation libs.bundles.okhttp3
+    implementation libs.bundles.room
+    implementation libs.viewbinding
+    implementation libs.glide
+    implementation libs.paging3
+    implementation libs.hilt.android
+    implementation libs.expresso.idling.resource
+    kapt libs.hilt.compiler
+    kapt libs.room.compiler
+
+    testImplementation libs.junit
+    testImplementation libs.kotlinx.coroutines.test
+    testImplementation libs.core.testing
+    testImplementation libs.mockk
+    testImplementation libs.turbine
+
+    androidTestImplementation libs.junit.ext
+    androidTestImplementation libs.core.testing
+    androidTestImplementation libs.navigation.testing
+    androidTestImplementation libs.bundles.expresso
+    androidTestImplementation libs.bundles.okhttp3.test
+    androidTestImplementation libs.hilt.android.test
+    kaptAndroidTest libs.hilt.compiler.test
+    debugImplementation libs.fragment.test
+}
+
+
+spotless {
+    kotlin {
+        target '**/*.kt'
+        targetExclude("$buildDir/**/*.kt")
+        licenseHeaderFile(rootProject.file('gradle/license-header.txt'))
+
+        // Spotless doesn't read .editorconfig yet: https://github.com/diffplug/spotless/issues/142
+        ktlint('0.46.1').editorConfigOverride([
+                'disabled_rules': 'no-wildcard-imports, filename',
+                'ktlint_code_style': 'android',
+                'insert_final_newline': true,
+                'end_of_line': 'lf',
+                'charset': 'utf-8',
+                'max_line_length': 120,
+                'ij_kotlin_allow_trailing_comma': true,
+                'ij_kotlin_imports_layout': '*',
+        ])
+    }
+
+    format 'misc', {
+        target '**/*.gradle', '**/*.md', '**/.gitignore'
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+
+    format 'xml', {
+        target '**/*.xml'
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+}
