@@ -1,6 +1,8 @@
 [versions]
 agp = "7.3.1"
 daggerhilt = "2.44"
+#@keep this version of desugaring
+desugar-jdk = "1.2.2"
 expresso = "3.4.0"
 fragment = "1.5.4"
 kotlin = "1.7.20"
@@ -20,6 +22,7 @@ appcompat = "androidx.appcompat:appcompat:1.5.1"
 constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
 core-ktx = "androidx.core:core-ktx:1.9.0"
 core-testing = "androidx.arch.core:core-testing:2.1.0"
+desugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar-jdk" }
 expresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "expresso" }
 expresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "expresso" }
 expresso-idling-resource = { module = "androidx.test.espresso:espresso-idling-resource", version.ref = "expresso" }

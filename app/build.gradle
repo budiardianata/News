@@ -19,7 +19,16 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+            }
+        }
+
+        testInstrumentationRunner "com.test.news.HiltTestRunner"
     }
 
     buildTypes {
@@ -29,6 +38,7 @@ android {
         }
     }
     compileOptions {
+        coreLibraryDesugaringEnabled = true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -38,9 +48,16 @@ android {
     buildFeatures {
         viewBinding true
     }
+    testOptions {
+        animationsDisabled = true
+        unitTests {
+            returnDefaultValues true
+        }
+    }
 }
 
 dependencies {
+    coreLibraryDesugaring libs.desugar
     implementation libs.core.ktx
     implementation libs.bundles.ui
     implementation libs.bundles.lifecycle
@@ -72,6 +89,9 @@ dependencies {
     debugImplementation libs.fragment.test
 }
 
+hilt {
+    enableAggregatingTask = true
+}
 
 spotless {
     kotlin {
