@@ -47,7 +47,7 @@ class NewsDatabaseTest {
     }
 
     @Test
-    fun insertData_Success() = runBlocking {
+    fun insertData_ForPaging_Success() = runBlocking {
         val given = mapper.listMap(FakeDataProvider.generateArticle(5))
         val keys = given.map {
             ArticleKeys(id = it.id, prevKey = 0, nextKey = 1)
