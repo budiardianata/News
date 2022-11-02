@@ -36,10 +36,10 @@ internal class FakeRemoteDataSource(private val testMode: TestMode) : NewsApi {
                     )
                 )
             }
-            TestMode.ERROR -> {
+            TestMode.EMPTY -> {
                 return NewsResponse("Success", 0, emptyList())
             }
-            TestMode.EMPTY -> {
+            TestMode.ERROR -> {
                 val error = FakeDataProvider.apiError("Test Error")
                 throw HttpException(Response.error<NewsResponse>(500, error))
             }

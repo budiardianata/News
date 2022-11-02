@@ -9,8 +9,6 @@ import com.test.news.data.source.local.NewsDatabase
 import com.test.news.data.source.local.entity.ArticleEntity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import java.io.IOException
-import javax.inject.Inject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.After
@@ -19,6 +17,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 @ExperimentalPagingApi
@@ -46,14 +45,13 @@ class ArticleRemoteMediatorTest {
     }
 
     @Test
-    fun refreshPaging_then_returnError_IOException() = runBlocking {
+    fun refreshPaging_then_returnError_Exception() = runBlocking {
         val fakeApi = FakeRemoteDataSource(TestMode.ERROR)
         val remoteMediator = ArticleRemoteMediator(null, fakeApi, database, mapper)
 
         val result = remoteMediator.load(LoadType.REFRESH, pagingState)
-
         assertTrue(result is RemoteMediator.MediatorResult.Error)
-        assertTrue((result as RemoteMediator.MediatorResult.Error).throwable is IOException)
+        assertTrue((result as RemoteMediator.MediatorResult.Error).throwable is java.lang.Exception)
     }
 
     @Test
