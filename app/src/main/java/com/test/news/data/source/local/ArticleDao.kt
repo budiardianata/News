@@ -15,8 +15,11 @@ interface ArticleDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(stories: List<ArticleEntity>): LongArray
 
-    @Query("SELECT * FROM articles")
-    fun getNews(): PagingSource<Int, ArticleEntity>
+    @Query(
+        "SELECT * FROM articles WHERE title LIKE :queryString IS NULL " +
+            "OR (title LIKE :queryString OR description LIKE :queryString)"
+    )
+    fun getArticles(queryString: String?): PagingSource<Int, ArticleEntity>
 
     @Query("DELETE FROM articles")
     fun clearAll()

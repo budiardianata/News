@@ -3,10 +3,11 @@
  */
 package com.test.news.data.source
 
-import com.test.news.data.source.remote.NetworkResult
+import com.test.news.data.source.remote.NewsApi
 import com.test.news.data.source.remote.response.NewsResponse
 import com.test.news.util.FakeDataProvider
-import java.io.IOException
+import retrofit2.HttpException
+import retrofit2.Response
 
 enum class TestMode {
     SUCCESS,
@@ -14,32 +15,34 @@ enum class TestMode {
     EMPTY
 }
 
-internal class FakeRemoteDataSource(private val testMode: TestMode) : RemoteDataSource {
-    override suspend fun getNews(
+internal class FakeRemoteDataSource(private val testMode: TestMode) : NewsApi {
+
+    override suspend fun getArticles(
         page: Int,
         pageSize: Int,
         category: String,
         country: String,
         query: String?,
-    ): NetworkResult<NewsResponse> {
-        return when (testMode) {
+    ): NewsResponse {
+        when (testMode) {
             TestMode.SUCCESS -> {
                 val articles = FakeDataProvider.generateArticle(pageSize * 5)
-                NetworkResult.Success(
-                    NewsResponse(
-                        "Success",
-                        articles.size,
-                        articles.subList(
-                            (page - 1) * pageSize,
-                            (page - 1) * pageSize + pageSize
-                        )
+                return NewsResponse(
+                    "Success",
+                    articles.size,
+                    articles.subList(
+                        (page - 1) * pageSize,
+                        (page - 1) * pageSize + pageSize
                     )
                 )
             }
-            TestMode.EMPTY -> NetworkResult.Success(
-                NewsResponse("Success", 0, emptyList())
-            )
-            TestMode.ERROR -> NetworkResult.Exception(IOException())
+            TestMode.ERROR -> {
+                return NewsResponse("Success", 0, emptyList())
+            }
+            TestMode.EMPTY -> {
+                val error = FakeDataProvider.apiError("Test Error")
+                throw HttpException(Response.error<NewsResponse>(500, error))
+            }
         }
     }
 }

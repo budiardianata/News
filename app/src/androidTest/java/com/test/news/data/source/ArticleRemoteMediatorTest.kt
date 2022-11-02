@@ -6,7 +6,7 @@ package com.test.news.data.source
 import androidx.paging.*
 import com.test.news.data.mapper.MapArticleResponseToEntity
 import com.test.news.data.source.local.NewsDatabase
-import com.test.news.domain.model.Article
+import com.test.news.data.source.local.entity.ArticleEntity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import java.io.IOException
@@ -33,7 +33,7 @@ class ArticleRemoteMediatorTest {
     @Inject
     lateinit var mapper: MapArticleResponseToEntity
 
-    private val pagingState = PagingState<Int, Article>(
+    private val pagingState = PagingState<Int, ArticleEntity>(
         listOf(),
         null,
         PagingConfig(10),
@@ -47,8 +47,8 @@ class ArticleRemoteMediatorTest {
 
     @Test
     fun refreshPaging_then_returnError_IOException() = runBlocking {
-        val fakeApi: RemoteDataSource = FakeRemoteDataSource(TestMode.ERROR)
-        val remoteMediator = ArticleRemoteMediator(fakeApi, database, mapper)
+        val fakeApi = FakeRemoteDataSource(TestMode.ERROR)
+        val remoteMediator = ArticleRemoteMediator(null, fakeApi, database, mapper)
 
         val result = remoteMediator.load(LoadType.REFRESH, pagingState)
 
@@ -58,8 +58,8 @@ class ArticleRemoteMediatorTest {
 
     @Test
     fun refreshPaging_then_returnSuccess_noMoreData() = runBlocking {
-        val fakeApi: RemoteDataSource = FakeRemoteDataSource(TestMode.EMPTY)
-        val remoteMediator = ArticleRemoteMediator(fakeApi, database, mapper)
+        val fakeApi = FakeRemoteDataSource(TestMode.EMPTY)
+        val remoteMediator = ArticleRemoteMediator(null, fakeApi, database, mapper)
 
         val result = remoteMediator.load(LoadType.REFRESH, pagingState)
 
@@ -69,8 +69,8 @@ class ArticleRemoteMediatorTest {
 
     @Test
     fun refreshPaging_then_returnSuccess_moreDataIsPresent() = runBlocking {
-        val fakeApi: RemoteDataSource = FakeRemoteDataSource(TestMode.SUCCESS)
-        val remoteMediator = ArticleRemoteMediator(fakeApi, database, mapper)
+        val fakeApi = FakeRemoteDataSource(TestMode.SUCCESS)
+        val remoteMediator = ArticleRemoteMediator(null, fakeApi, database, mapper)
 
         val result = remoteMediator.load(LoadType.REFRESH, pagingState)
 
