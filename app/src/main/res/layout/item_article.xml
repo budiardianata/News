@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/article_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="0dp"
+    style="?attr/materialCardViewElevatedStyle">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        style="?materialCardViewElevatedStyle">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/article_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/article_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/article_published_at"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            app:layout_constraintEnd_toStartOf="@id/article_source"
+            app:layout_constraintStart_toStartOf="@id/article_title"
+            app:layout_constraintTop_toTopOf="@id/article_image"
+            tools:text="@tools:sample/date/mmddyy" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/article_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:textAlignment="textEnd"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            app:layout_constraintEnd_toEndOf="@id/article_title"
+            app:layout_constraintStart_toEndOf="@id/article_published_at"
+            app:layout_constraintTop_toTopOf="@id/article_image"
+            tools:text="@tools:sample/cities" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/article_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/article_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/article_image"
+            app:layout_constraintTop_toBottomOf="@id/article_published_at"
+            tools:text="@tools:sample/lorem/random" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/article_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lines="3"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            app:layout_constraintBottom_toBottomOf="@id/article_image"
+            app:layout_constraintEnd_toEndOf="@id/article_title"
+            app:layout_constraintStart_toStartOf="@id/article_title"
+            app:layout_constraintTop_toBottomOf="@id/article_title"
+            tools:text="@tools:sample/lorem/random" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
