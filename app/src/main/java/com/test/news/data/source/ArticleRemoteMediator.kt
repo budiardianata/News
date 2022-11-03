@@ -18,6 +18,7 @@ import com.test.news.data.source.remote.response.ErrorResponse
 import com.test.news.data.source.remote.response.NewsResponse
 import com.test.news.util.Constant
 import com.test.news.util.fromJson
+import com.test.news.util.wrapEspressoIdlingResource
 import java.io.IOException
 import retrofit2.HttpException
 
@@ -32,7 +33,7 @@ class ArticleRemoteMediator constructor(
     override suspend fun load(
         loadType: LoadType,
         state: PagingState<Int, ArticleEntity>,
-    ): MediatorResult {
+    ): MediatorResult = wrapEspressoIdlingResource {
         val page = when (loadType) {
             LoadType.REFRESH -> {
                 val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)

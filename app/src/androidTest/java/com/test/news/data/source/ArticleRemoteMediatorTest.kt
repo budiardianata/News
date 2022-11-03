@@ -9,6 +9,7 @@ import com.test.news.data.source.local.NewsDatabase
 import com.test.news.data.source.local.entity.ArticleEntity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import javax.inject.Inject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.After
@@ -17,7 +18,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 @ExperimentalPagingApi
