@@ -1,0 +1,111 @@
+name: Build 🛠
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.yml'
+  workflow_dispatch:
+
+jobs:
+  lint-and-test:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: gradle/wrapper-validation-action@v1
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: 'temurin'
+
+      - name: make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Add Key from Secrets
+        run: echo -e "NEWS_API_KEY=${{secrets.NEWS_API_KEY}}" > ./local.properties
+
+      - name: Setup Gradle and debug🐘
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: buildDebug
+          gradle-version: 7.5.1
+
+      - name: Run Lint
+        run: ./gradlew lintDebug spotlessCheck --stacktrace
+
+      - name: Run Test
+        run: ./gradlew testDebugUnitTest --stacktrace
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: reports-output
+          path: app/build/reports
+
+  build-apk:
+    name: Build APK
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: gradle/wrapper-validation-action@v1
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: 'temurin'
+
+      - name: Add Key from Secrets
+        run: echo -e "NEWS_API_KEY=${{secrets.NEWS_API_KEY}}" > ./local.properties
+
+      - name: Setup Gradle and debug🐘
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: assembleDebug --stacktrace
+          gradle-version: 7.5.1
+
+      - name: Upload build output 📤
+        if:  ${{ success() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output
+          path: ${{github.workspace}}/app/build/outputs
+          if-no-files-found: error
+
+
+  release:
+    needs: build-apk
+    name: Release 🚀
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Download Build Output Artefact 📦
+        uses: actions/download-artifact@v3
+        id: build-result
+        with:
+          name: build-output
+
+      - name: Bump version and push tag 📦
+        if: ${{ success() }}
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create github release 🎉
+        if: ${{ success() }}
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+          artifacts: ${{steps.build-result.outputs.download-path}}/**/*.apk
+          token: ${{ secrets.GITHUB_TOKEN }}
