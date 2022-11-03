@@ -1,4 +1,7 @@
 # News App
+
+[![Build 🛠](https://github.com/budiardianata/News/actions/workflows/CI.yml/badge.svg)](https://github.com/budiardianata/News/actions/workflows/CI.yml)
+
 This is simple News app built to demonstrate use of Modern Android development tools.
 All data is fetched from [News API](https://newsapi.org/).
 
