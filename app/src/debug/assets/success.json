@@ -1,0 +1,136 @@
+{
+  "status": "ok",
+  "totalResults": 69,
+  "articles": [
+    {
+      "source": {
+        "id": null,
+        "name": "CNBC"
+      },
+      "author": "Carmen Reinicke",
+      "title": "Stock futures fall after the Fed dashes hopes for a pivot to softer tightening stance - CNBC",
+      "description": "Here's how stock futures are trading after Wednesday's volatile session when the Federal Reserve handed out another interest rate hike.",
+      "url": "https://www.cnbc.com/2022/11/02/stock-market-futures-open-to-close-news.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/107145128-1667430036730-nyse.jpg?v=1667430052&w=1920&h=1080",
+      "publishedAt": "2022-11-03T10:41:00Z",
+      "content": "Stock futures fell Thursday, building on the losses from the previous session, after the Federal Reserve delivered another interest rate hike and signaled that no pivot or rate cut is coming anytime … [+1889 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Fox Business"
+      },
+      "author": "Bradford Betz",
+      "title": "Musk mocks AOC, others angry over price for Twitter blue check - Fox Business",
+      "description": "Elon Musk is responding to critics, including Rep. Alexandria Ocasio-Cortez, D-N.Y., over criticism of his plan to charge Twitter users $8 a month to be verified.",
+      "url": "https://www.foxbusiness.com/politics/musk-mocks-aoc-others-angry-price-twitter-blue-check",
+      "urlToImage": "https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2022/04/0/0/Untitled-design-48.png?ve=1&tl=1",
+      "publishedAt": "2022-11-03T06:53:46Z",
+      "content": "Elon Musk on Wednesday shot back at Rep. Alexandria Ocasio-Cortez, D-N.Y., after she ridiculed his plan to charge $8 a month for Twitter users to receive a verified blue check mark. \r\n\"Lmao at a bill… [+1855 chars]"
+    },
+    {
+      "source": {
+        "id": "engadget",
+        "name": "Engadget"
+      },
+      "author": "https://www.engadget.com/about/editors/mariella-moon",
+      "title": "Elon Musk is reportedly planning to cut Twitter's workforce in half - Engadget",
+      "description": "Elon Musk is culling 3,700 employees from Twitter's workforce, according to Bloomberg.",
+      "url": "https://www.engadget.com/elon-musk-twitter-50-percent-layoffs-031228046.html",
+      "urlToImage": "https://s.yimg.com/os/creatr-uploaded-images/2022-11/84ac38f0-5b1a-11ed-acee-75818362d023",
+      "publishedAt": "2022-11-03T03:13:29Z",
+      "content": "The mass layoffs Twitter employees have been bracing for since Elon Musk began his takeover may be on the horizon. According to Bloomberg, the website's new owner and \"Chief Twit\" is planning to cull… [+2265 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Variety"
+      },
+      "author": "Gene Maddaus",
+      "title": "LAPD to Investigate Captain Accused of Tipping Off Leslie Moonves About Sex Assault Investigation - Variety",
+      "description": "The LAPD said Wednesday that it has begun an internal investigation into a retired police commander who allegedly tipped off Leslie Moonves, then the CEO of CBS Corp., about a sexual assault investigation in November 2017, and who swore his “allegiance” to Mo…",
+      "url": "https://variety.com/2022/tv/news/lapd-captain-leslie-moonves-tip-investigation-1235421858/",
+      "urlToImage": "https://variety.com/wp-content/uploads/2017/04/moonves.jpg?w=1000&h=563&crop=1",
+      "publishedAt": "2022-11-03T03:02:00Z",
+      "content": "The LAPD said Wednesday that it has begun an internal investigation into a retired police commander who allegedly tipped off Leslie Moonves, then the CEO of CBS Corp., about a sexual assault investig… [+4114 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Benzinga"
+      },
+      "author": "Shivdeep Dhaliwal",
+      "title": "Dogecoin Rally Halts, Bitcoin, Ethereum Down After Fed Rate Hike — But 1 Major Crypto Is Still Charging A - Benzinga",
+      "description": "Major coins traded in negative territory on Wednesday evening as the global cryptocurrency market cap declined 1.8% to $999.6 billion at 9:31 p.m. EDT.",
+      "url": "https://www.benzinga.com/markets/cryptocurrency/22/11/29537540/dogecoin-rally-halts-bitcoin-ethereum-down-after-fed-rate-hike-but-1-major-crypto-is-still",
+      "urlToImage": "https://cdn.benzinga.com/files/images/story/2022/11/02/shutterstock_1970611928.jpg?width=1200&height=800&fit=crop",
+      "publishedAt": "2022-11-03T02:48:02Z",
+      "content": "Major coins traded in negative territory on Wednesday evening as the global cryptocurrency market cap declined 1.8% to $999.6 billion at 9:31 p.m. EDT.\r\n<table>Price Performance Of Major Coins\r\n<tr><… [+4718 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "CNBC"
+      },
+      "author": "Abigail Ng",
+      "title": "Hong Kong leads losses in negative Asia session after Fed signals more hikes ahead - CNBC",
+      "description": "Shares in the Asia-Pacific dropped on Thursday after the U.S. Federal Reserve Chairman Jerome Powell signaled further hikes ahead.",
+      "url": "https://www.cnbc.com/2022/11/03/asia-markets-stocks-fed-hike-inflation-caixin-services-pmi.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/106942650-1631757620880-gettyimages-1231882518-HK_BAIDU.jpeg?v=1667441334&w=1920&h=1080",
+      "publishedAt": "2022-11-03T02:34:00Z",
+      "content": "In a briefing with reporters on Wednesday following a fourth consecutive 0.75 percentage point rate hike, Federal Reserve Chairman Jerome Powell said the central bank's ultimate target for increases … [+768 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Allison Morrow",
+      "title": "One sentence from the Fed got markets all worked up. Then Powell spoke - CNN",
+      "description": "The Fed hath spoken.",
+      "url": "https://www.cnn.com/2022/11/02/business/nightcap-fed-rate-hike/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221102185725-jerome-powell-conference-11022.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-11-03T00:42:00Z",
+      "content": "Editors Note: A version of this story appeared in CNN Business Nightcap newsletter. To get it in your inbox, sign up for free, here.\r\nThe Fed hath spoken.\r\nAs we discussed yesterday, the Feds 75-basi… [+4438 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "CVS, Walgreens announce $10B opioid settlement - CBS News",
+      "description": "The nation's two largest pharmacy chains, CVS and Walgreens, announced they are settling lawsuits over their roles in the opioid crisis to the tune of $5 bil...",
+      "url": "https://www.youtube.com/watch?v=Dg_nULwHHyY",
+      "urlToImage": "https://i.ytimg.com/vi/Dg_nULwHHyY/maxresdefault.jpg",
+      "publishedAt": "2022-11-03T00:22:49Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Mcknightsseniorliving.com"
+      },
+      "author": "Lois A. Bowers",
+      "title": "Updated: CVS plans to sell Omnicare long-term care pharmacy business, saying it is 'no longer a strategic asset' - McKnight's Senior Living",
+      "description": "CVS Health plans to sell its long-term care pharmacy business, Omnicare, reporting a $2.5 billion loss on it in the third quarter, the company announced Wednesday.",
+      "url": "https://www.mcknightsseniorliving.com/home/news/cvs-plans-to-sell-omnicare-long-term-care-pharmacy-business-which-is-no-longer-a-strategic-asset/",
+      "urlToImage": "https://www.mcknightsseniorliving.com/wp-content/uploads/sites/3/2021/10/kLynch_101921_MCK.jpg",
+      "publishedAt": "2022-11-02T23:37:30Z",
+      "content": "CVS Health President and CEO Karen Lynch\r\nWoonsocket, RI-based CVS Health plans to sell its long-term care pharmacy business, Cincinnati-based Omnicare, reporting a $2.5 billion loss related to it in… [+8354 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Kitco NEWS"
+      },
+      "author": "http://www.facebook.com/kitconews",
+      "title": "Stock market erases billions after FOMC rate hike, gold to stay flat until year-end - Gary Wagner - Kitco NEWS",
+      "description": "",
+      "url": "https://www.kitco.com/news/2022-11-02/Stock-market-erases-billions-after-FOMC-rate-hike-gold-to-stay-flat-until-year-end-Gary-Wagner.html",
+      "urlToImage": "https://www.kitco.com/news/2022-11-02/images/22_11_02_Wagner_YT.jpg",
+      "publishedAt": "2022-11-02T23:36:00Z",
+      "content": "The S&amp;P 500 shed more than $800 billion on Wednesday, falling 2.5 percent in a days trading after the Federal Reserve announced that it would raise interest rates by 75 basis points. Despite the … [+1813 chars]"
+    }
+  ]
+}
