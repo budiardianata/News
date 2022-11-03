@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,17 +10,16 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:fitsSystemWindows="true"
-        android:layout_height="250dp">
+        android:layout_height="250dp"
+        android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:expandedTitleMarginBottom="10dp"
             android:fitsSystemWindows="true"
+            app:expandedTitleMarginBottom="10dp"
             app:expandedTitleMarginStart="15dp"
-            app:forceApplySystemWindowInsetTop="true"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -33,6 +31,7 @@
                 app:layout_collapseMode="parallax"
                 tools:ignore="ImageContrastCheck"
                 tools:src="@tools:sample/avatars" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -41,38 +40,40 @@
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolBarLayout"
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
+                android:layout_height="?attr/actionBarSize"
                 android:contentInsetStart="0dp"
-                app:title="@string/app_name"
                 android:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
                 app:contentInsetStartWithNavigation="0dp"
-                app:layout_collapseMode="pin" />
+                app:layout_collapseMode="pin"
+                app:title="@string/app_name" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:paddingBottom="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/title"
+                android:id="@+id/detail_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="12dp"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
-                android:layout_marginVertical="12dp"
                 android:textAppearance="?attr/textAppearanceTitleLarge"
                 android:textColor="?attr/colorOnSurfaceVariant"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/content"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/published_at"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/detail_content"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="@tools:sample/lorem" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -84,14 +85,14 @@
                 android:lines="1"
                 android:textAppearance="?attr/textAppearanceCaption"
                 android:textColor="?attr/colorOnSurfaceVariant"
-                app:layout_constraintEnd_toStartOf="@id/source"
-                app:layout_constraintStart_toStartOf="@id/content"
-                app:layout_constraintTop_toBottomOf="@id/title"
-                app:layout_constraintBottom_toTopOf="@id/content"
+                app:layout_constraintBottom_toTopOf="@id/detail_content"
+                app:layout_constraintEnd_toStartOf="@id/detail_source"
+                app:layout_constraintStart_toStartOf="@id/detail_content"
+                app:layout_constraintTop_toBottomOf="@id/detail_title"
                 tools:text="@tools:sample/date/mmddyy" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/source"
+                android:id="@+id/detail_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -101,25 +102,32 @@
                 android:textAppearance="?attr/textAppearanceCaption"
                 android:textColor="?attr/colorOnSurfaceVariant"
                 app:layout_constraintBottom_toBottomOf="@id/published_at"
-                app:layout_constraintEnd_toEndOf="@id/content"
+                app:layout_constraintEnd_toEndOf="@id/detail_content"
                 app:layout_constraintStart_toEndOf="@id/published_at"
                 app:layout_constraintTop_toTopOf="@id/published_at"
                 tools:text="@tools:sample/cities" />
+
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/content"
-                android:layout_marginVertical="8dp"
+                android:id="@+id/detail_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                app:layout_constraintBottom_toTopOf="@id/read_more"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/published_at"
-                android:textAppearance="?attr/textAppearanceBodyLarge"
                 tools:text="@tools:sample/lorem/random" />
+
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/read_more"
+                style="@style/Widget.Material3.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.Material3.Button.TextButton"
-                app:layout_constraintTop_toBottomOf="@id/content"/>
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_content" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
